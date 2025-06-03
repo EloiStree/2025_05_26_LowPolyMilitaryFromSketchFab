@@ -4,7 +4,6 @@ namespace Eloi.LowPolyTool {
     public class LowPolyMono_MaxAngleRotationSet : MonoBehaviour
     {
         public float m_maxAngle = 45f; // Maximum angle in degrees
-        public Transform m_anchorDirection;
         public Transform m_whatToMove;
         public Vector3 m_localAxis = Vector3.right;
 
@@ -41,9 +40,9 @@ namespace Eloi.LowPolyTool {
         public void Refresh() {
 
 
-            if (m_whatToMove == null || m_anchorDirection == null) return;
-            Quaternion targetRotation = Quaternion.AngleAxis(m_currentAngle, m_localAxis) * m_anchorDirection.rotation;
-            m_whatToMove.rotation = targetRotation;
+            if (m_whatToMove == null ) return;
+            Quaternion targetRotation = Quaternion.AngleAxis(m_currentAngle, m_localAxis) ;
+            m_whatToMove.localRotation = targetRotation;
 
         }
     }
